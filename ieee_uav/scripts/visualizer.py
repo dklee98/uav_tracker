@@ -49,7 +49,7 @@ class path_pub():
         self.float_data = Float32()
 
         self.rate = rospy.Rate(self.append_rate)
-        self.f=open("/home/mason/data.csv", 'a')
+        # self.f=open("/home/mason/data.csv", 'a')
 
     def gtcallback(self, msg):
         for i in range(len(msg.name)):
@@ -78,7 +78,7 @@ class path_pub():
 
             VUAV = sqrt(pow(self.robot_vel.linear.x, 2) + pow(self.robot_vel.linear.y, 2) + pow(self.robot_vel.linear.z, 2))
             self.distance.publish(self.float_data)
-            self.f.write("%.2f, %.2f, %.2f, %.2f\n"%(self.curr_t, self.float_data.data, self.VTarget, VUAV)) #time, dist, Vtarget, Vuav
+            # self.f.write("%.2f, %.2f, %.2f, %.2f\n"%(self.curr_t, self.float_data.data, self.VTarget, VUAV)) #time, dist, Vtarget, Vuav
             self.target_pose_last = self.target_pose
             self.prev_t = self.curr_t
             self.Vtarget_prev = self.VTarget
